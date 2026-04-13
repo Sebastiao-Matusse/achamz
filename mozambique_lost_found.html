@@ -692,12 +692,12 @@
 <header class="header">
   <div class="logo">Acha<span>do</span>MZ</div>
   <nav class="nav-links">
-    <a onclick="openModal()">Post Item</a>
+    <a onclick="openModal()">Postar Item</a>
     <a onclick="alert('Coming soon: SMS alerts for new posts in your area!')"
-      >Alerts</a
+      >Alertas</a
     >
     <a onclick="alert('Contact: achado@mz.co.mz | +258 84 000 0000')"
-      >Contact</a
+      >Contacte-nos</a
     >
   </nav>
 </header>
@@ -755,7 +755,7 @@
         onclick="setType('lost', this)"
         data-type="lost"
       >
-        <span class="filter-dot dot-lost"></span> perdidos
+        <span class="filter-dot dot-lost"></span> Perdidos
         <span class="filter-count" id="countLost">14</span>
       </div>
       <div
@@ -763,7 +763,7 @@
         onclick="setType('found', this)"
         data-type="found"
       >
-        <span class="filter-dot dot-found"></span> Found
+        <span class="filter-dot dot-found"></span> Achados
         <span class="filter-count" id="countFound">10</span>
       </div>
     </div>
@@ -799,12 +799,12 @@
           Zambézia
         </div>
 
-        <div class="province-btn" onclick="setProvince('Tete', this)">Tete</div>
-        <div class="province-btn" onclick="setProvince('Pemba', this)">
-          Cabo Delgado
+        <div class="province-btn" onclick="setProvince('Nampula', this)">
+          Nampula
         </div>
-
-        <div class="province-btn" onclick="setProvince('Tete', this)">Tete</div>
+        <div class="province-btn" onclick="setProvince('Lichinga', this)">
+          Niassa
+        </div>
         <div class="province-btn" onclick="setProvince('Pemba', this)">
           Cabo Delgado
         </div>
@@ -812,17 +812,17 @@
     </div>
 
     <button class="post-btn" onclick="openModal()">
-      + Post Lost / Found Item
+      + Postar Item / Item Achado
     </button>
   </aside>
 
   <section>
     <div class="content-header">
-      <h2 id="contentTitle">Recent items</h2>
+      <h2 id="contentTitle">Itens Recentes</h2>
       <select class="sort-select" onchange="sortItems(this.value)">
-        <option value="newest">Newest first</option>
-        <option value="oldest">Oldest first</option>
-        <option value="reward">Has reward</option>
+        <option value="newest">Novos primeiro</option>
+        <option value="oldest">Antigos primeiro</option>
+        <option value="reward">Itens com Recompensa</option>
       </select>
     </div>
     <div class="items-grid" id="itemsGrid"></div>
@@ -832,62 +832,66 @@
 <div class="modal-overlay" id="postModal">
   <div class="modal">
     <div class="modal-header">
-      <h3>Post a Lost or Found Item</h3>
+      <h3>Postar Item Perdido ou Item Achado</h3>
       <button class="modal-close" onclick="closeModal('postModal')">✕</button>
     </div>
     <div class="modal-body">
       <div class="form-group">
-        <label class="form-label">I am reporting a...</label>
+        <label class="form-label">Estou Reportando a...</label>
         <div class="type-toggle">
           <button
             class="type-btn active-lost"
             id="typeLost"
             onclick="selectType('lost')"
           >
-            🔍 Lost Item
+            🔍 Item Perdido
           </button>
           <button class="type-btn" id="typeFound" onclick="selectType('found')">
-            ✅ Found Item
+            ✅ Item Achado
           </button>
         </div>
       </div>
       <div class="form-group">
-        <label class="form-label">Item Name</label>
+        <label class="form-label">Nome do Item</label>
         <input
           type="text"
-          placeholder="e.g. Blue backpack, Gold ring, iPhone 14..."
+          placeholder="ex. Mochila Azul, Anel de Ouro, iPhone 14..."
           id="postName"
         />
       </div>
       <div class="form-row">
         <div class="form-group">
-          <label class="form-label">Category</label>
+          <label class="form-label">Categoria</label>
           <select id="postCat">
-            <option>Electronics</option>
-            <option>Clothing & Accessories</option>
-            <option>Jewellery</option>
-            <option>Bags & Wallets</option>
-            <option>Documents & ID</option>
-            <option>Keys</option>
-            <option>Pets</option>
-            <option>Other</option>
+            <option>Electronicos</option>
+            <option>Vestuario & Accessorios</option>
+            <option>Joelheria</option>
+            <option>Pastas & Carteiras</option>
+            <option>Documentos & BI</option>
+            <option>Chaves</option>
+            <option>Animais de Estimacao</option>
+            <option>Outros</option>
           </select>
         </div>
         <div class="form-group">
-          <label class="form-label">Province</label>
+          <label class="form-label">Provincias</label>
           <select id="postProvince">
-            <option>Maputo</option>
-            <option>Matola</option>
-            <option>Beira</option>
-            <option>Nampula</option>
+            <option>Maputo Cidade</option>
+            <option>Maputo Provincia</option>
+            <option>Gaza</option>
+            <option>Inhambane</option>
+            <option>Sofala</option>
             <option>Tete</option>
-            <option>Pemba</option>
-            <option>Quelimane</option>
+            <option>Manica</option>
+            <option>Zambézia</option>
+            <option>Nampula</option>
+            <option>Cabo-Delgado</option>
+            <option>Niassa</option>
           </select>
         </div>
       </div>
       <div class="form-group">
-        <label class="form-label">Location details</label>
+        <label class="form-label">Detalhes da Localizacao</label>
         <input
           type="text"
           placeholder="e.g. Mercado Central, Julius Nyerere Ave..."
@@ -895,23 +899,23 @@
         />
       </div>
       <div class="form-group">
-        <label class="form-label">Description</label>
+        <label class="form-label">Descricao</label>
         <textarea
-          placeholder="Describe the item, any unique identifiers, circumstances..."
+          placeholder="Descreva o item, algo unico sobre o item, circunstancias..."
           id="postDesc"
         ></textarea>
       </div>
       <div class="form-row">
         <div class="form-group">
-          <label class="form-label">Your Contact</label>
+          <label class="form-label">Seu Contacto</label>
           <input type="text" placeholder="+258 8X XXX XXXX" id="postContact" />
         </div>
         <div class="form-group">
-          <label class="form-label">Reward (optional)</label>
+          <label class="form-label">Recompensa (opcionall)</label>
           <input type="text" placeholder="e.g. 500 MZN" id="postReward" />
         </div>
       </div>
-      <button class="submit-btn" onclick="submitPost()">Publish Listing</button>
+      <button class="submit-btn" onclick="submitPost()">Publicar</button>
     </div>
   </div>
 </div>
@@ -919,7 +923,7 @@
 <div class="modal-overlay" id="detailModal">
   <div class="modal">
     <div class="modal-header" id="detailHeader">
-      <h3 id="detailTitle">Item Detail</h3>
+      <h3 id="detailTitle">Detalhes do Item</h3>
       <button class="modal-close" onclick="closeModal('detailModal')">✕</button>
     </div>
     <div class="detail-modal-body" id="detailBody"></div>
